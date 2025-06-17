@@ -1,0 +1,21 @@
+.pm-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 2000;
+}
+.pm-content {
+  background: #fff;
+  padding: 1.5rem;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  position: relative;
+}
+.pm-close {
+  position: absolute; top: 8px; right: 12px;
+  background: none; border: none; font-size: 1.5rem; cursor: pointer;
+}
+.pm-image {
+  width: 100%; height: auto; border-radius: 4px; margin-bottom: 1rem;
+}

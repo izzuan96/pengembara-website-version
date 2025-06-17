@@ -1,0 +1,55 @@
+/* src/pages/Home.css */
+
+/* Fade‐in animation for listings */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.home-page .loading-text,
+.home-page .no-results {
+  text-align: center;
+  color: #666;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+}
+
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* Each link wrapper animates on appearance */
+.listing-link {
+  display: block;
+  animation: fadeIn 0.4s ease both;
+}
+
+/* Load more button styling */
+.load-more-wrapper {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.load-more-btn {
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  background: var(--accent);
+  color: #f75454;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.load-more-btn:hover {
+  background: #e14b50;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}

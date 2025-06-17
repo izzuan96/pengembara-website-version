@@ -1,0 +1,17 @@
+.fav-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #5393d4;
+  background: #fff;
+  color: #5393d4;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.fav-btn:hover {
+  background: #5393d4; color: #fff;
+}
+.fav-btn.favorited {
+  background: #f0f0f0; color: #999;
+  border-color: #999;
+}
