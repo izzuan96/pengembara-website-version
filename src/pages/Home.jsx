@@ -20,22 +20,38 @@ export default function Home() {
     setLoading(true);
     searchPlaces(q)
       .then(raw => {
-        // normalize names & filter only when searching
-        const norm = raw.map(p => ({
+        // Normalize names by stripping leading numbers and dots:
+        const normalized = raw.map(p => ({
           ...p,
-          name: p.name.replace(/^\s*\d+\.\s*/, '').trim()
+          name: p.name.replace(/^\s*\d+\.\s*/, '').trim(),
         }));
-        const filtered = q
-          ? norm.filter(p =>
-              !/bubbles/i.test(p.name) &&
-              !/^Admission tickets/i.test(p.name)
-            )
-          : norm;
+
+        // Filter out any entry whose name:
+        //  • contains "bubbles"
+        //  • starts with "Admission tickets"
+        //  • matches a rating pattern like "4.4 of 5"
+        //  • is too short or purely numeric/punctuation
+        const filtered = normalized.filter(p => {
+          const name = p.name;
+          if (!name) return false;
+          // drop if contains "bubbles"
+          if (/bubbles/i.test(name)) return false;
+          // drop if "Admission tickets"
+          if (/^Admission tickets?/i.test(name)) return false;
+          // drop if it looks like a rating "x.x of 5"
+          if (/^\d+(\.\d+)? of 5\b/.test(name)) return false;
+          // drop if it's mostly numbers/punctuation under 5 chars
+          if (/^[\d\.\,\s-]{1,5}$/.test(name)) return false;
+          return true;
+        });
 
         setPlaces(filtered);
         setVisibleCount(PAGE_SIZE);
       })
-      .catch(err => console.error(err))
+      .catch(err => {
+        console.error(err);
+        setPlaces([]);
+      })
       .finally(() => setLoading(false));
   }, [q]);
 
@@ -50,7 +66,7 @@ export default function Home() {
         {loading ? (
           <p className="loading-text">Loading…</p>
         ) : places.length === 0 ? (
-          <p className="no-results">No places to show.</p>
+          <p className="no-results">No places found.</p>
         ) : (
           <>
             <MapView
