@@ -1,41 +1,54 @@
-/* src/components/PlaceCard.css */
-
 .place-card {
-  background: var(--bg-card);
-  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 0.5rem;
+  border-radius: 12px;
   overflow: hidden;
+  /* make the card itself transparent */
+  background: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform .2s, box-shadow .2s;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .place-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-.place-card-img {
+/* 4:3 aspect ratio wrapper */
+.place-card-image-wrapper {
+  position: relative;
   width: 100%;
-  height: 160px;
-  object-fit: cover;
+  padding-top: 75%;
   background: #f0f0f0;
 }
+.place-card-image-wrapper img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
 
-.place-card-body {
-  flex: 1;
+/* INFO BLOCK NOW TRANSPARENT */
+.place-card-info {
   padding: 0.75rem;
+  background: transparent;   /* <-- no white box */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.place-card-body h5 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  color: var(--text-main);
-}
-
-.place-card-body p {
+.place-card-name {
   margin: 0;
-  color: #666;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.2;
+}
+
+.place-card-state {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #19847e; /* your teal */
 }

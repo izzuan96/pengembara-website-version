@@ -1,115 +1,53 @@
-/* ───────────────────────────────────────────────────── */
-/* Global variables & base styles                      */
-/* ───────────────────────────────────────────────────── */
+/* src/App.css */
+
+/* Your existing variables */
 :root {
-  --brand-teal:      #158C79;
-  --brand-cream:     #FCF7F0;
-  --brand-dark:      #333333;
-  --accent-light:    #E6F4F1;
-  --accent-mid:      #A3D6C8;
-  --gray-100:        #FFFFFF;
-  --gray-200:        #F7F7F7;
-  --gray-300:        #DDDDDD;
-  --gray-500:        #555555;
-  --text-primary:    var(--brand-dark);
-  --text-secondary:  var(--gray-500);
-  --border-radius:   8px;
-  --spacing:         1rem;
+  --bg-page:   #F6F6F6;            /* light grey page bg */
+  --bg-card:   #FFFFFF;            /* white cards */
+  --accent:    #19847e;            /* ← your Pengembara teal! */
+  --accent-light: rgba(25, 132, 126, 0.1); /* optional hover background */
+  --text-main: #333333;            /* dark text */
 }
 
 body {
   margin: 0;
-  background-color: var(--brand-cream);
-  color: var(--text-primary);
+  background-color: var(--bg-page);
+  color: var(--text-main);
   font-family: 'Inter', sans-serif;
 }
 
-/* ───────────────────────────────────────────────────── */
-/* Hero section                                        */
-/* ───────────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  height: 400px;
-  overflow: hidden;
-  background: var(--gray-200);
+/* Tiny accent-outlined button */
+.btn-outline-accent {
+  color: var(--accent);
+  border-color: var(--accent);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+}
+.btn-outline-accent:hover,
+.btn-outline-accent:focus {
+  background-color: var(--accent-light);
+  color: #fff;
+}
+/* accent button already shown above; ensure you have: */
+
+.btn-outline-accent {
+  color: var(--accent);
+  border-color: var(--accent);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+}
+.btn-outline-accent:hover,
+.btn-outline-accent:focus {
+  background-color: var(--accent);
+  color: #fff;
+}
+.navbar-logo {
+  height: 40px;
+  margin-right: 10px;
 }
 
-.hero-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.hero-search {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 600px;
-  background: var(--gray-100);
-  padding: calc(var(--spacing) * 1) calc(var(--spacing) * 1.5);
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* ───────────────────────────────────────────────────── */
-/* Listings grid                                        */
-/* ───────────────────────────────────────────────────── */
-.listings {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-  padding: 0 1rem;
-}
-
-/* ───────────────────────────────────────────────────── */
-/* Results heading                                      */
-/* ───────────────────────────────────────────────────── */
-main .results-heading {
-  font-size: 1.5rem;
-  margin: var(--spacing) 0;
-  color: var(--text-primary);
-}
-
-/* ───────────────────────────────────────────────────── */
-/* Card defaults                                        */
-/* ───────────────────────────────────────────────────── */
-.place-card {
-  background: var(--gray-100);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-}
-
-.place-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-}
-
-/* ───────────────────────────────────────────────────── */
-/* Button & form accents                                */
-/* ───────────────────────────────────────────────────── */
-.btn-primary {
-  background-color: var(--brand-teal);
-  border-color: var(--brand-teal);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-mid);
-  border-color: var(--accent-mid);
-}
-
-input.form-control,
-.search-input {
-  background-color: var(--gray-100);
-  border: 1px solid var(--gray-300);
-}
-
-input.form-control:focus,
-.search-input:focus {
-  border-color: var(--brand-teal);
-  box-shadow: 0 0 0 0.2rem var(--accent-light);
-}
+/* Retain your existing hero, listings, etc... */
+.hero { /* ... */ }
+.listings { /* ... */ }
+/* (leave the rest of your App.css untouched) */

@@ -1,0 +1,31 @@
+.filter-sidebar {
+  position: sticky;
+  top: 80px;           /* below navbar */
+  width: 40px;         /* collapsed width */
+  transition: width 0.3s;
+}
+.filter-sidebar.open {
+  width: 220px;        /* expanded width */
+}
+.filter-toggle {
+  width: 100%;
+  background: #288a7b;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.filter-content {
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+}
+.apply-btn {
+  margin-top: 1rem;
+  width: 100%;
+  background: #288a7b;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}

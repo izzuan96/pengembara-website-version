@@ -1,17 +1,36 @@
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import './MapView.css';
 
-export default function MapView({ center, places, zoom = 10 }) {
+export default function MapView({
+  center = [3.1390, 101.6869],
+  zoom = 10,
+  places = []
+}) {
   return (
-    <MapContainer center={center} zoom={zoom} className="map-container">
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {places.map(p => (
-        <Marker key={p.id} position={[p.lat, p.lng]}>
-          <Popup>
-            <strong>{p.name}</strong><br />{p.location}
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div className="map-container">
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        style={{ height: '400px', width: '100%' }}
+      >
+        <TileLayer
+          attribution="&copy; OpenStreetMap contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {places.map(p =>
+          p.lat && p.lng ? (
+            <Marker
+              key={p.id}
+              position={[Number(p.lat), Number(p.lng)]}
+            >
+              <Popup>{p.name}</Popup>
+            </Marker>
+          ) : null
+        )}
+      </MapContainer>
+    </div>
   );
 }

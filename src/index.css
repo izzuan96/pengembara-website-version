@@ -1,3 +1,13 @@
+html, body {
+  overflow-x: hidden;   /* kill horizontal scroll */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+#root {
+  overflow: visible;    /* let React handle vertical only */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

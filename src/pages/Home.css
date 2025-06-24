@@ -1,55 +1,33 @@
-/* src/pages/Home.css */
-
-/* Fade‐in animation for listings */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+.home-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
 }
 
-.home-page .loading-text,
-.home-page .no-results {
-  text-align: center;
-  color: #666;
-  font-size: 1.25rem;
-  margin-top: 2rem;
+.home-main {
+  flex: 1;
+  padding-left: 0;
+  overflow-y: auto;
+  height: calc(100vh - 80px); /* account for navbar height */
 }
-
-.listings {
+.home-main::-webkit-scrollbar {
+  width: 8px;
+}
+.place-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
-/* Each link wrapper animates on appearance */
-.listing-link {
+.show-more {
   display: block;
-  animation: fadeIn 0.4s ease both;
-}
-
-/* Load more button styling */
-.load-more-wrapper {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-.load-more-btn {
-  padding: 0.75rem 2rem;
-  border-radius: 50px;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
   background: var(--accent);
-  color: #f75454;
+  color: #fff;
   border: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-
-.load-more-btn:hover {
-  background: #e14b50;
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-.load-more-btn:active {
-  transform: translateY(0);
+  border-radius: 4px;
+  cursor: pointer;
 }
